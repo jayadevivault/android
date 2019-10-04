@@ -234,6 +234,7 @@ static def getLatestGitHash() {
 
 static def getGitOriginRemote() {
     def process = "git remote -v".execute()
+
     def values = process.text.toString().trim().split("\\r\\n|\\n|\\r")
 
     def found = values.find { it.startsWith("origin") && it.endsWith("(push)") }
